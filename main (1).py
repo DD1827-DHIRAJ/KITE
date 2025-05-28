@@ -23,3 +23,8 @@ if __name__ == "__main__":
     while True:
         print("⏳ Alive...", time.ctime())
         time.sleep(60)
+import time
+
+while True:
+    print("💓 System heartbeat alive - running fine.")
+    time.sleep(60)
