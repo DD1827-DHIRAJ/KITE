@@ -1,12 +1,17 @@
-
-import os
 from kiteconnect import KiteConnect
+import os
 
 def auto_login():
-    kite = KiteConnect(api_key=os.getenv('KITE_API_KEY'))
-    data = kite.generate_session(
-        request_token=os.getenv('KITE_REQUEST_TOKEN'),
-        api_secret=os.getenv('KITE_API_SECRET')
-    )
-    kite.set_access_token(data['access_token'])
-    return kite
+    api_key = os.environ.get('KITE_API_KEY')
+    api_secret = os.environ.get('KITE_API_SECRET')
+    request_token = os.environ.get('KITE_REQUEST_TOKEN')
+
+    try:
+        kite = KiteConnect(api_key=api_key)
+        data = kite.generate_session(request_token, api_secret=api_secret)
+        kite.set_access_token(data['access_token'])
+        print("✅ Login successful. Access token set.")
+        return kite
+    except Exception as e:
+        print(f"❌ Login failed: {str(e)}")
+        return None
