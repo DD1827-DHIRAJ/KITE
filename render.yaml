@@ -1,7 +1,0 @@
-services:
-  - type: worker
-    name: KITE
-    runtime: python
-    branch: main
-    buildCommand: ""
-    startCommand: "python main.py"
