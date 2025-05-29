@@ -1,7 +1,7 @@
-
 import time
 from login_auto import auto_login
 from trade_engine import run_smc_strategy
+import traceback
 
 def main():
     print("🚀 Starting Auto Trader")
@@ -10,7 +10,8 @@ def main():
         print("✅ Login successful. Access token set.")
         run_smc_strategy(kite)
     except Exception as e:
-        print(f"❌ Error: {str(e)}")
+        print("❌ Error during login or strategy:")
+        traceback.print_exc()
 
     while True:
         print("❤️ System heartbeat active")
