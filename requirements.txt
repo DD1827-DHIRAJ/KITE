@@ -1,4 +1,0 @@
-
-kiteconnect==4.1.0
-selenium==4.10.0
-schedule
